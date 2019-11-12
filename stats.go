@@ -165,18 +165,17 @@ func (input *StatsConfig) Run() error {
 
 	fmt.Println(green("\nISSUES"))
 	if allEmpty(duplicateUUIDs, missingContentUUIDs, missingContentTypeUUIDs) {
-		fmt.Println("none")
+		fmt.Println("None")
 	}
 	if len(duplicateUUIDs) > 0 {
-		fmt.Println("duplicate note UUIDs: ", outList(duplicateUUIDs, ", "))
+		fmt.Println("Duplicate note UUIDs: ", outList(duplicateUUIDs, ", "))
 	}
 	if len(missingContentUUIDs) > 0 {
-		fmt.Println("missing content UUIDs:", outList(missingContentUUIDs, ", "))
+		fmt.Println("Missing content UUIDs:", outList(missingContentUUIDs, ", "))
 	}
 	if len(missingContentTypeUUIDs) > 0 {
-		fmt.Println("missing content type UUIDs:", outList(missingContentTypeUUIDs, ", "))
+		fmt.Println("Missing content type UUIDs:", outList(missingContentTypeUUIDs, ", "))
 	}
-
 
 	return err
 }
