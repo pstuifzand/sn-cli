@@ -383,6 +383,9 @@ func addTags(ati addTagsInput) (ato addTagsOutput, err error) {
 		var eTagsToAdd gosn.EncryptedItems
 
 		eTagsToAdd, err = tagsToAdd.Encrypt(ati.session.Mk, ati.session.Ak)
+		if err != nil {
+			return
+		}
 
 		putItemsInput := gosn.PutItemsInput{
 			Session: ati.session,

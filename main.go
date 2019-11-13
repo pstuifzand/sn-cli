@@ -135,9 +135,8 @@ type AddTagsInput struct {
 
 type AddTagsOutput struct {
 	Added, Existing []string
-	SyncToken string
+	SyncToken       string
 }
-
 
 type GetTagConfig struct {
 	Session gosn.Session
