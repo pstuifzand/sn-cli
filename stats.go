@@ -52,8 +52,6 @@ func (input *StatsConfig) Run() error {
 
 	var oldestNote, newestNote, lastUpdatedNote time.Time
 
-	//var deletedItemsUUIDs []string
-
 	var missingContentUUIDs []string
 
 	var missingContentTypeUUIDs []string
@@ -135,10 +133,10 @@ func (input *StatsConfig) Run() error {
 
 	fmt.Println(Green("COUNTS"))
 	tCounter.present()
-	//fmt.Println("Deleted:", len(deletedItemsUUIDs))
-
 	fmt.Println(Green("\nSTATS"))
+
 	var statLines []string
+
 	if len(notes) > 0 {
 		statLines = append(statLines, fmt.Sprintf("Oldest | %v", timeSince(oldestNote.Local())))
 		statLines = append(statLines, fmt.Sprintf("Newest | %v", timeSince(newestNote.Local())))
@@ -163,15 +161,19 @@ func (input *StatsConfig) Run() error {
 	}
 
 	fmt.Println(Green("\nISSUES"))
+
 	if allEmpty(duplicateUUIDs, missingContentUUIDs, missingContentTypeUUIDs) {
 		fmt.Println("None")
 	}
+
 	if len(duplicateUUIDs) > 0 {
 		fmt.Println("Duplicate note UUIDs: ", outList(duplicateUUIDs, ", "))
 	}
+
 	if len(missingContentUUIDs) > 0 {
 		fmt.Println("Missing content UUIDs:", outList(missingContentUUIDs, ", "))
 	}
+
 	if len(missingContentTypeUUIDs) > 0 {
 		fmt.Println("Missing content type UUIDs:", outList(missingContentTypeUUIDs, ", "))
 	}
@@ -185,6 +187,7 @@ func allEmpty(in ...[]string) bool {
 			return false
 		}
 	}
+
 	return true
 }
 
@@ -208,7 +211,6 @@ func (in *typeCounter) update(itemType string) {
 }
 
 func (in *typeCounter) present() {
-
 	var lines []string
 	lines = append(lines, fmt.Sprintf("Notes ^ %d", in.counts["Note"]))
 	lines = append(lines, fmt.Sprintf("Tags ^ %d", in.counts["Tag"]))
@@ -218,6 +220,7 @@ func (in *typeCounter) present() {
 			lines = append(lines, fmt.Sprintf("%s ^ %d", name, count))
 		}
 	}
+
 	lines = append(lines, fmt.Sprintf("Deleted ^ %d", in.counts["Deleted"]))
 
 	config := columnize.DefaultConfig()

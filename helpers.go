@@ -106,5 +106,6 @@ func RemoveDeleted(in gosn.Items) (out gosn.Items) {
 			out = append(out, i)
 		}
 	}
+
 	return
 }

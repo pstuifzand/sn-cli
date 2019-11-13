@@ -16,6 +16,7 @@ func TestAddDeleteTagByTitle(t *testing.T) {
 		Session: sOutput.Session,
 		Tags:    []string{"TestTagOne", "TestTagTwo"},
 	}
+
 	var ato AddTagsOutput
 	ato, err = addTagConfig.Run()
 	assert.NoError(t, err)
@@ -46,6 +47,7 @@ func TestGetTag(t *testing.T) {
 		Session: sOutput.Session,
 		Tags:    testTagTitles,
 	}
+
 	var ato AddTagsOutput
 	ato, err = addTagInput.Run()
 	assert.NoError(t, err, err)

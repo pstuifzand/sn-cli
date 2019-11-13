@@ -26,6 +26,7 @@ func tagNotes(input tagNotesInput) (newSyncToken string, err error) {
 	}
 
 	var ato addTagsOutput
+
 	ato, err = addTags(ati)
 	if err != nil {
 		return
@@ -368,6 +369,7 @@ func addTags(ati addTagsInput) (ato addTagsOutput, err error) {
 			ato.existing = append(ato.existing, tag)
 			continue
 		}
+
 		newTagContent := gosn.NewTagContent()
 		newTag := gosn.NewTag()
 		newTagContent.Title = tag
