@@ -77,7 +77,6 @@ func (input *StatsConfig) Run() error {
 
 		if item.Deleted {
 			tCounter.update("Deleted")
-			//deletedItemsUUIDs = append(deletedItemsUUIDs, item.UUID)
 		}
 
 		if !item.Deleted && item.ContentType == "" {
@@ -215,7 +214,7 @@ func (in *typeCounter) present() {
 	lines = append(lines, fmt.Sprintf("Tags ^ %d", in.counts["Tag"]))
 
 	for name, count := range in.counts {
-		if name != "Tag" && name != "Note" {
+		if name != "Tag" && name != "Note" && name != "Deleted" {
 			lines = append(lines, fmt.Sprintf("%s ^ %d", name, count))
 		}
 	}

@@ -67,7 +67,7 @@ func TestAddDeleteNoteByUUID(t *testing.T) {
 	defer cleanUp(&testSession)
 
 	// create note
-	addNoteConfig := AddNoteConfig{
+	addNoteConfig := AddNoteInput{
 		Session: testSession,
 		Title:   "TestNoteOne",
 		Text:    "TestNoteOneText",
@@ -116,7 +116,7 @@ func TestAddDeleteNoteByUUID(t *testing.T) {
 func TestAddDeleteNoteByTitle(t *testing.T) {
 	defer cleanUp(&testSession)
 
-	addNoteConfig := AddNoteConfig{
+	addNoteConfig := AddNoteInput{
 		Session: testSession,
 		Title:   "TestNoteOne",
 	}
@@ -157,7 +157,7 @@ func TestAddDeleteNoteByTitle(t *testing.T) {
 func TestAddDeleteNoteByTitleRegex(t *testing.T) {
 	defer cleanUp(&testSession)
 	// add note
-	addNoteConfig := AddNoteConfig{
+	addNoteConfig := AddNoteInput{
 		Session: testSession,
 		Title:   "TestNoteOne",
 	}
@@ -202,7 +202,7 @@ func TestGetNote(t *testing.T) {
 	defer cleanUp(&testSession)
 
 	// create one note
-	addNoteConfig := AddNoteConfig{
+	addNoteConfig := AddNoteInput{
 		Session: testSession,
 		Title:   "TestNoteOne",
 	}
